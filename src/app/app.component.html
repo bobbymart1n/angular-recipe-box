@@ -1,11 +1,31 @@
 <div class="recipe" *ngFor="let recipe of recipes">
-  <h3>{{recipe.title}}</h3>
-  <ul>
-    <h3>Ingredients</h3>
-    <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
-  </ul>
-  <ul>
-    <h3>Directions</h3>
-    <li *ngFor="let direction of recipe.directions">{{direction}}</li>
-  </ul>
+  <div class="row">
+    <div class="col">
+      <div class="flex">
+        <h3 class="mr-3">{{recipe.title}}</h3>
+        <button class="btn btn-info" (click)='editRecipe(recipe)'>Edit</button>
+      </div>
+      <ul>
+        <h3>Ingredients</h3>
+        <li *ngFor="let ingredient of recipe.ingredients">{{ingredient.item}}</li>
+      </ul>
+      <ul>
+        <h3>Directions</h3>
+        <li *ngFor="let direction of recipe.directions">{{direction.direction}}</li>
+      </ul>
+    </div>
+    <div *ngIf="selectedRecipe === recipe" class="col">
+      <h3>{{selectedRecipe.title}}</h3>
+      <h3>Edit Recipe</h3>
+      <label>Edit Recipe Ingredients:</label>
+      <div *ngFor="let ingredient of selectedRecipe.ingredients">
+        <input [(ngModel)]="ingredient.item">
+      </div>
+      <label>Edit Recipe Directions:</label>
+      <div *ngFor="let direction of selectedRecipe.directions">
+        <input [(ngModel)]="direction.direction"><br>
+      </div>
+      <button (click)="finishEditing()">Done</button>
+    </div>
+  </div>
 </div>
