@@ -12,16 +12,16 @@ import { Direction } from './models/direction.model';
 export class AppComponent {
 
   directions: Direction[] = [
-    new Direction('Preheat oven to 375');
-    new Direction('mix ingredients in bowl');
-    new Direction('pour into other bowl');
-    new Direction('get baked');
+    new Direction('Preheat oven to 375'),
+    new Direction('mix ingredients in bowl'),
+    new Direction('pour into other bowl'),
+    new Direction('get baked')
   ]
 
   ingredients: Ingredient[] = [
-    new Ingredient('flour');
-    new Ingredient('sugar');
-    new Ingredient('milk');
+    new Ingredient('flour'),
+    new Ingredient('sugar'),
+    new Ingredient('milk')
   ]
   recipes: Recipe[] = [
     new Recipe('Sugar Cookie', this.ingredients, this.directions)
@@ -37,7 +37,5 @@ export class AppComponent {
     this.selectedRecipe = null;
   }
 
-  constructor() {
-    console.log(this.recipes[0]);
-  }
+  constructor() {}
 }
